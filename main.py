@@ -2,8 +2,8 @@ import random
 
 # GENES = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,20,21,22,23,24,25,26,27,28,29,30]
 
-TARGET = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-# TARGET = [random.randint(1,30) for _ in range(16)]
+#TARGET = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+TARGET = [random.randint(1,30) for _ in range(16)]
 
 POPULATION_SIZE = 1000
 
@@ -28,7 +28,7 @@ class Sujeto(object): # \(^<^)/
         child = []
         for i in range(len(self.cromosoma)):
             if len(self.cromosoma)/2 <= i:
-                if random.randint(0,1):
+                if random.randint(0,1) or TARGET[i] == self.cromosoma[i]:
                     child.append(self.cromosoma[i])
                 else:
                     child.append(random.randint(1,30))
