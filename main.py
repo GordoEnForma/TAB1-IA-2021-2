@@ -7,7 +7,7 @@ import time
 
 TARGET = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
 # TARGET = [random.randint(1,Q_GENES) for _ in range(16)]
-Q_GENES = 100
+Q_GENES = 1000
 POPULATION_SIZE = 1000
 pygame.init()
 
@@ -47,7 +47,7 @@ class Sujeto(object): # \(^<^)/
         child = []
         for i in range(len(self.cromosoma)):
             if len(self.cromosoma)/2 <= i:
-                if random.randint(0,1) or TARGET[i] == self.cromosoma[i]:
+                if TARGET[i] == self.cromosoma[i]:
                     child.append(self.cromosoma[i])
                 else:
                     child.append(random.randint(1,Q_GENES))
@@ -102,7 +102,7 @@ def run(population,flag,generacion):
                 nueva_cepa.append(child)
             population = nueva_cepa
 
-            time.sleep(1.5)
+            # time.sleep(1.5)
             print(f'Generacion: {generacion}, Poblacion: {population[0].cromosoma},Puntuacion: {population[0].puntuacion}')
 
             generacion += 1
